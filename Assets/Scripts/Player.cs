@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -13,14 +14,15 @@ public class Player : MonoBehaviour
     //private float _playerInputVertical;
     private Rigidbody2D _rBody2D;
     //private GroundSensor _sensor;
-    private Animator _animator;
+    [SerializeField]private Animator _animator;
+    [SerializeField]private PlayableDirector _director;
 
 
     void Start()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
-        _animator = GetComponentInChildren<Animator>();
+        //_animator = GetComponentInChildren<Animator>();
 
     }
     void Update()
@@ -31,6 +33,11 @@ public class Player : MonoBehaviour
         {
             Jump();
         }     
+
+        if(Input.GetButtonDown("Fire2"))
+        {
+            _director.Play();
+        }
     }
     void Jump()
     {
