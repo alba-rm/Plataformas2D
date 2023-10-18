@@ -38,12 +38,14 @@ public class Player : MonoBehaviour
         {
             _director.Play();
         }
+
+        _animator.SetBool("IsJumping", !GroundSensor._isGrounded);
+
     }
     void Jump()
     {
-        
-        
         _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        
     }
     void FixedUpdate()
     {
@@ -61,15 +63,19 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
             _animator.SetBool("IsRunning", true);
         }
-        if(_playerInputHorizontal > 0)
+        else if(_playerInputHorizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             _animator.SetBool("IsRunning", true);
         }
-        if (_playerInputHorizontal == 0)
+        else 
         {
             _animator.SetBool("IsRunning", false);
         }
 
+    }
+    public void SignalTest()
+    {
+        Debug.Log("Señal recibida");
     }
 }
