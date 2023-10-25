@@ -634,6 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888735949}
   - component: {fileID: 888735950}
+  - component: {fileID: 888735951}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -752,6 +753,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &888735951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888735948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87058d551376734ca977acc6fed56b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDeath: {fileID: 8300000, guid: 3c791abf7bf74fe4daaa53f4dab732e4, type: 3}
+  playerJump: {fileID: 8300000, guid: f8d4116c1c95be747b7151dcc7177073, type: 3}
 --- !u!1 &891100710
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +945,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07254259562a8c4ba1f61c5f9dd2704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1343899615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343899617}
+  - component: {fileID: 1343899616}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1343899616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343899615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198f292b35d39e64d93e5dfb6e552b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidas: 0
+--- !u!4 &1343899617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343899615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5197664, y: 0.0043631643, z: 0.029544238}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551847449
 GameObject:
   m_ObjectHideFlags: 3
@@ -1105,7 +1165,7 @@ Transform:
   m_GameObject: {fileID: 1563399772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.997229, y: -0.66626996, z: -10}
+  m_LocalPosition: {x: -8.54, y: -0.66500014, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6267,9 +6327,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2142173010}
   - component: {fileID: 2142173009}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Confiner
-  m_TagString: Untagged
+  m_TagString: DeadZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6353,3 +6413,4 @@ SceneRoots:
   - {fileID: 2110766332}
   - {fileID: 888735949}
   - {fileID: 1754306012}
+  - {fileID: 1343899617}

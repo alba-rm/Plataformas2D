@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
         //_animator = GetComponentInChildren<Animator>();
+        Debug.Log(GameManager.instance.vidas);
 
     }
     void Update()
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
     void Jump()
     {
         _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        SoundManager.instance.PlayerJump();
         
     }
     void FixedUpdate()
@@ -77,5 +79,15 @@ public class Player : MonoBehaviour
     public void SignalTest()
     {
         Debug.Log("Señal recibida");
+    }
+
+     void OnTriggerExit2D(Collider2D collider) 
+    {
+        if (collider.gameObject.layer == 7)
+        {
+            GameManager.instance.GameOver();
+            SoundManager.instance.PlayerDeath();
+        }
+        
     }
 }
