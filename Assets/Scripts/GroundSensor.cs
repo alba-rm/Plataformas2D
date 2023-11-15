@@ -20,6 +20,13 @@ public class GroundSensor : MonoBehaviour
             //_animator.SetBool("IsJumping", false);
           
         }
+        else if (other.gameObject.layer == 3)
+        {
+            Debug.Log("Star!!");
+
+            Star star = other.gameObject.GetComponent<Star>();
+            star.Get();
+        }
     }
     void OnTriggerStay2D(Collider2D other) 
     {
