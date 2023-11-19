@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance {get; private set;}
-    public int vidas;
+    private int vidas = 3;
+    public HUD hud;
+    public int PuntosTotales {get; private set;}
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,9 +22,23 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-
+    public void SumarPuntos(int puntosASumar)
+    {
+        PuntosTotales += puntosASumar;
+        hud.Puntos(PuntosTotales);
+        
+    }
     public void GameOver()
     {
         Debug.Log("Game Over");
+    }
+    public void PerderVida()
+    {
+        vidas -= 1;
+        if(vidas == 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+        hud.DesactivarVida(vidas);
     }
 }

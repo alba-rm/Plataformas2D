@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         _rBody2D = GetComponent<Rigidbody2D>();
         //_sensor = GetComponentInChildren<GroundSensor>();
         //_animator = GetComponentInChildren<Animator>();
-        Debug.Log(GameManager.instance.vidas);
+        //Debug.Log(GameManager.instance.vidas);
 
     }
     void Update()

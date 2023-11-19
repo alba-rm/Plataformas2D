@@ -27,9 +27,10 @@ public class Bomb : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) 
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Has muerto");
+            GameManager.instance.PerderVida();
+            
             //soundManager.StopBGM();
             //sfxManager.PersonajeDeath();
             //SceneManager.LoadScene(2);

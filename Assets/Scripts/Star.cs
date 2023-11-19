@@ -6,6 +6,8 @@ public class Star : MonoBehaviour
 {
     BoxCollider2D boxCollider;
     SoundManager soundManager;
+    public int valor = 1;
+    public GameManager gameManager; 
 
     // Start is called before the first frame update
     void Start()
@@ -13,10 +15,14 @@ public class Star : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>(); 
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
-    public void Get()
+    private void OnTriggerEnter2D(Collider2D collider)
     { 
-        boxCollider.enabled = false;
-        Destroy(this.gameObject, 0.1f);
+        if(collider.CompareTag("Player"))
+        {
+        gameManager.SumarPuntos(valor);
+        Debug.Log("Star!!");
+        Destroy(this.gameObject);
         //sfxManager.GetCoin();
+        }
     }
 }
