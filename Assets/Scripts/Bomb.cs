@@ -8,6 +8,9 @@ public class Bomb : MonoBehaviour
     CircleCollider2D circleCollider;
     Rigidbody2D rBody;
     SoundManager soundManager;
+    
+    //[Serializefield] private float radio;
+    //[Serializefield] private float fuerzaExplosion;
    
     void Start()
     {
@@ -24,11 +27,19 @@ public class Bomb : MonoBehaviour
         //sfxManager.Chest();
         
     }
-
+    
     void OnCollisionEnter2D(Collision2D collision) 
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            //Empezar animacion
+            anim.SetBool("IsTouch", true);
+            //Comprobacion rango
+            
+            //Tras un tiempo activar daño
+            
+            //Destruir objeto
+            Destroy(this.gameObject, 0.6f);
             GameManager.instance.PerderVida();
             
             //soundManager.StopBGM();
@@ -37,6 +48,10 @@ public class Bomb : MonoBehaviour
 
         }
     }
+    void OnTriggerStay2D(Collider2D  collider) 
+    {
+        //CircleCollider2D[] circleCollider = Physics2D.OverLapCircleAll(transform.position, radio);
 
+    }
 
 }
