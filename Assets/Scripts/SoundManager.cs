@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     AudioSource _sfxSource;
     [SerializeField]private AudioClip playerDeath;
     [SerializeField]private AudioClip playerJump;
+    [SerializeField]private AudioClip star;
+    [SerializeField]private AudioClip bomb;
     
     // Start is called before the first frame update
     void Awake()
@@ -26,10 +28,17 @@ public class SoundManager : MonoBehaviour
     {
         _sfxSource.PlayOneShot(playerDeath);
     }
-     public void PlayerJump()
+    public void PlayerJump()
     {
         _sfxSource.PlayOneShot(playerJump);
     }
-
+    public void PlayerGetStar()
+    {
+        _sfxSource.PlayOneShot(star);
+    }
+      public void PlayerTouchBomb()
+    {
+        _sfxSource.PlayOneShot(bomb);
+    }
 
 }

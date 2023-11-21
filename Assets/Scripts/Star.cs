@@ -20,9 +20,10 @@ public class Star : MonoBehaviour
         if(collider.CompareTag("Player"))
         {
         gameManager.SumarPuntos(valor);
-        Debug.Log("Star!!");
-        Destroy(this.gameObject);
-        //sfxManager.GetCoin();
         }
+        Debug.Log("Star!!");
+        SoundManager.instance.PlayerGetStar();
+        Destroy(this.gameObject);
     }
+   
 }

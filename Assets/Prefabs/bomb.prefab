@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5898176050408945283}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.668826, y: -0.6115816, z: 0}
+  m_LocalPosition: {x: -7.5525904, y: -0.7115584, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f503fc81d8ea644ba520409bb1bb12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radio: 1
+  explosionForce: 400
 --- !u!58 &6835618108995320355
 CircleCollider2D:
   m_ObjectHideFlags: 0

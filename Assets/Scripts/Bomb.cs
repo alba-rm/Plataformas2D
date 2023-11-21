@@ -9,48 +9,51 @@ public class Bomb : MonoBehaviour
     Rigidbody2D rBody;
     SoundManager soundManager;
     
-    //[Serializefield] private float radio;
-    //[Serializefield] private float fuerzaExplosion;
+    [SerializeField] private float radio;
+    [SerializeField] private float explosionForce;
    
     void Start()
     {
         anim = GetComponent<Animator>();
-        circleCollider = GetComponent<CircleCollider2D>();
-        rBody = GetComponent<Rigidbody2D>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
-    public void BombExplosion()
-    {
-        anim.SetBool("IsTouch", true);
-        circleCollider.enabled = false;
-        //Destroy(this.gameObject, 0.2f);
-        //sfxManager.Chest();
-        
-    }
-    
+
     void OnCollisionEnter2D(Collision2D collision) 
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            //Empezar animacion
-            anim.SetBool("IsTouch", true);
-            //Comprobacion rango
+            anim.SetBool("IsTouch", true);            
             
-            //Tras un tiempo activar daño
-            
-            //Destruir objeto
             Destroy(this.gameObject, 0.6f);
-            GameManager.instance.PerderVida();
-            
-            //soundManager.StopBGM();
-            //sfxManager.PersonajeDeath();
-            //SceneManager.LoadScene(2);
-
+            SoundManager.instance.PlayerTouchBomb();
+            GameManager.instance.PerderVida(); 
         }
     }
     void OnTriggerStay2D(Collider2D  collider) 
     {
-        //CircleCollider2D[] circleCollider = Physics2D.OverLapCircleAll(transform.position, radio);
+        Collider2D[] circleCollider = Physics2D.OverlapCircleAll(transform.position, radio);
+
+        foreach (Collider2D colision in circleCollider)
+        {
+            Rigidbody2D rb2D = colision.GetComponent<Rigidbody2D>();
+            if(rb2D != null)
+            {
+                Vector2 direction = colision.transform.position -transform.position;
+                float distance = 1 + direction.magnitude;
+                float finalForce = explosionForce / distance;
+                rb2D.AddForce(direction * finalForce);
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radio);
 
     }
 
