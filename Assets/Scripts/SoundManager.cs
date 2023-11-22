@@ -10,8 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]private AudioClip playerJump;
     [SerializeField]private AudioClip star;
     [SerializeField]private AudioClip bomb;
-    [SerializeField]private AudioClip bandaSonoraMenu;
-    [SerializeField]private AudioClip bandaSonora;
+
     
     // Start is called before the first frame update
     void Awake()

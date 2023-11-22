@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     //private GroundSensor _sensor;
     [SerializeField]private Animator _animator;
     [SerializeField]private PlayableDirector _director;
-    HUD hud;
+    
 
     void Start()
     {
@@ -103,12 +103,4 @@ public class Player : MonoBehaviour
         }
         
     }
-    /*private void OnTriggerEnter2D(Collider2D collider)
-    { 
-        if(collider.CompareTag("Player"))
-        {
-            hud.Puntos ++;
-        }
-
-    }*/
 }

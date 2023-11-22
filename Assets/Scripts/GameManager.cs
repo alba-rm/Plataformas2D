@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public HUD hud;
     public int PuntosTotales {get; private set;}
     public int stars = 3;
-    Player player;
+    
     
     
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         SceneManager.LoadScene(2);
+       
     }
     public void PerderVida()
     {
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         
-        if (player.stars == 3 )
+        if (stars == 3 )
         {
         Debug.Log("You Win");
         SceneManager.LoadScene(3);
