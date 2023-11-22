@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GroundSensor : MonoBehaviour
 {
+    //examen
     public static bool _isGrounded;
     private Animator _animator;
     
@@ -12,6 +13,7 @@ public class GroundSensor : MonoBehaviour
     {
     _animator = GameObject.Find("knight").GetComponent<Animator>();
     }*/
+    //examen
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.layer == 6)

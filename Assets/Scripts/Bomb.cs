@@ -23,8 +23,6 @@ public class Bomb : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("IsTouch", true);            
-            
-            Destroy(this.gameObject, 0.6f);
             SoundManager.instance.PlayerTouchBomb();
             GameManager.instance.PerderVida(); 
         }
@@ -47,6 +45,10 @@ public class Bomb : MonoBehaviour
             
         }
         
+    }
+    void Destroy() 
+    {
+        Destroy(this.gameObject); 
     }
     
     
