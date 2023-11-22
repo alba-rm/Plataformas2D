@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     private int vidas = 3;
     public HUD hud;
     public int PuntosTotales {get; private set;}
+    public int stars = 3;
+    Player player;
+    
     
     // Start is called before the first frame update
     void Awake()
@@ -31,13 +34,15 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        SceneManager.LoadScene(2);
     }
     public void PerderVida()
     {
         vidas -= 1;
         if(vidas == 0)
         {
-            SceneManager.LoadScene(1);
+            SoundManager.instance.PlayerDeath();
+            SceneManager.LoadScene(2);
         }
         hud.DesactivarVida(vidas);
     }
@@ -48,5 +53,15 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void GameWin()
+    {
+        
+        if (player.stars == 3 )
+        {
+        Debug.Log("You Win");
+        SceneManager.LoadScene(3);
+        }
+        
     }
 }

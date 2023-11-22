@@ -7,7 +7,8 @@ public class Star : MonoBehaviour
     BoxCollider2D boxCollider;
     SoundManager soundManager;
     public int valor = 1;
-    public GameManager gameManager; 
+    public GameManager gameManager;
+ 
 
     // Start is called before the first frame update
     void Start()

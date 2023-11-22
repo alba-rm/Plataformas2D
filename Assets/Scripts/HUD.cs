@@ -8,7 +8,7 @@ public class HUD : MonoBehaviour
     
     public TextMeshProUGUI puntos;
     public GameObject[] vidas;
-
+    
 
     // Update is called once per frame
 

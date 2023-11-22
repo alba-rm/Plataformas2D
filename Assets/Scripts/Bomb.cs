@@ -24,13 +24,24 @@ public class Bomb : MonoBehaviour
         {
             anim.SetBool("IsTouch", true);            
             SoundManager.instance.PlayerTouchBomb();
-            GameManager.instance.PerderVida(); 
+            
         }
     }
-    void OnTriggerStay2D(Collider2D  collider) 
+    void Explotando() 
     {
-        Collider2D[] circleCollider = Physics2D.OverlapCircleAll(transform.position, radio);
+        Collider2D[] playerCollider = Physics2D.OverlapCircleAll(transform.position, radio);
+        
+        foreach (Collider2D colision in playerCollider)
+        {
+            Player player = colision.GetComponent<Player>();
+            if (player != null)
+            {
+                GameManager.instance.PerderVida(); 
+            }
 
+        }
+        
+        Collider2D[] circleCollider = Physics2D.OverlapCircleAll(transform.position, radio);
         foreach (Collider2D colision in circleCollider)
         {
             Rigidbody2D rb2D = colision.GetComponent<Rigidbody2D>();
@@ -46,9 +57,15 @@ public class Bomb : MonoBehaviour
         }
         
     }
+    void Explosion() 
+    {
+        anim.SetBool("IsTouch", false);  
+        anim.SetBool("Explosion", true);
+    }
     void Destroy() 
     {
         Destroy(this.gameObject); 
+        
     }
     
     
